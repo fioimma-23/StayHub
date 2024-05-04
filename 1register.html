@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Page</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo {
+      text-align: center;
+      margin-top: 20px;
+    }
+   
+    .register-form {
+      width: 400px;
+      margin: 50px auto;
+      padding: 30px 40px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .register-form h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .register-form label {
+      display: block;
+      margin-bottom: 10px;
+      color: #666;
+    }
+
+    .register-form input[type="text"],
+    .register-form input[type="password"],
+    .register-form input[type="email"] {
+      width: calc(100% - 22px);
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .register-form button[type="submit"] {
+      width: 100%;
+      background-color: #0a0b3d;
+      color: white;
+      padding: 15px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .register-form button[type="submit"]:hover {
+      background-color: #060000;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0a0b3d;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+  </style>
+  
+</head>
+<body>
+
+  <div class="logo">
+    <img src="logo.png" alt="Logo">
+  </div>
+
+  <div class="register-form">
+    <h1>Register</h1>
+    <form id="registrationForm" method="post">
+      <label for="userName">Username:</label>
+      <input type="text" id="userName" name="userName" placeholder="Your Username" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Your Password" required>
+
+      <label for="confirm_password">Confirm Password:</label>
+      <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+      
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <div class="footer">
+    Developed By MadeEasy, NIT-T
+  </div>
+
+  <script>
+    // Function to handle form submission
+    function submitForm(event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      // Get form data
+      var formData = {
+        action: 'A',
+        rowId: 0,
+        userId: document.getElementById('userName').value,
+        userName: document.getElementById('userName').value,
+        password: document.getElementById('password').value,
+        isActive: true,
+        role: 'Student',
+        email: document.getElementById('email').value,
+        rollno: '',
+        dept: '',
+        sYear: '',
+        semester: ''
+      };
+      
+      // Convert form data to JSON
+      var jsonData = JSON.stringify(formData);
+      
+      // API endpoint URL
+      var apiURL = 'https://localhost:44314/api/NITTRoomBookAPI/Registration'; // Replace 'your-api-endpoint' with the actual URL
+      
+      // Set Fetch API options
+      var requestOptions = {
+        method: 'POST',
+        headers: {
+          'Accept': '*/*',
+          'Content-Type': 'application/json'
+        },
+        body: jsonData
+      };
+      
+      // Make HTTP POST request using Fetch API
+      fetch(apiURL, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          // Check if the API call was successful
+          if (data.errorCode === 0) {
+            // Display success message and redirect to next page
+            alert("User registered successfully!");
+            window.location.href = "2home_page.html";
+          } else {
+            // Display error message
+            alert('Error: ' + data.errorMessage);
+          }
+        })
+        .catch(error => {
+          // Do nothing if there's a fetch error
+          console.error('Error:', error);
+        });
+    }
+
+    // Add event listener for form submission
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirm_password").value;
+      
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        event.preventDefault(); // Prevent form submission if passwords don't match
+      } else {
+        // Passwords match, proceed with form submission
+        submitForm(event);
+      }
+    });
+  </script>
+
+</body>
+</html>

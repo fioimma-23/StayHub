@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student view rooms</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3; /* Light gray background */
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #f0f0f0;
+        }
+
+        /* .institution-name h1 {
+            margin: 0;
+            line-height: 1.5;
+        } */
+
+        .location p {
+            margin: 0;
+            font-size: 0.8rem;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: black;
+        }
+        .buttons {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.buttons a {
+  background-color: #003380;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.buttons a:hover {
+  background-color: #001f4d;
+}
+
+        main {
+            padding: 2rem;
+        }
+
+        main h2 {
+            margin-bottom: 1rem;
+        }
+
+        .content-box {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;  /* Make the box a flex container */
+            flex-direction: column;  /* Stack elements vertically */
+            gap: 1rem;  /* Add some space between elements */
+        }
+
+        .room-info {
+            display: flex;  /* Make room info a flex container */
+            justify-content: space-between;  /* Distribute horizontally */
+            align-items: center;  /* Align vertically */
+        }
+
+        .room-details ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .room-details li {
+            margin-bottom: 0.5rem;
+        }
+
+        .content-box2 {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .booking-details ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .booking-details li {
+            margin-bottom: 0.5rem;
+            color: #333;  /* Darker font color */
+            background-color: #f5f5f5;  /* Lighter background color */
+        }
+
+        .date-input {
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background-color: #0a0b3d;
+          color: white;
+          text-align: center;
+          padding: 10px 0;
+          font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="logo">
+          <img src="logo.png" alt="Logo">
+        </div>
+    <header>
+        <div class="navigation">
+            <a href="#">Home</a>
+            <a href="#">|</a>
+            <a href="#">Logout</a>
+        </div>
+    </header>
+    <div class="buttons">
+        <div class="booking-button" id="makeBooking"><a href="5book.html">Make a Booking</a></div>
+        <div class="booking-button" id="cancelBooking"><a href="7cancel.html">Cancel Booking</a></div>
+        <div class="booking-button" id="viewRooms"><a href="6view.html">View Available Rooms</a></div>
+        <div class="booking-button" id="mail"><a href="8mail.html">Mail</a></div>
+        <div class="booking-button" id="aboutGuestHouse"><a href="8about.html">About Guest House</a></div>
+      </div>
+    <main>
+        <div class="content-box">
+            <h2>View Rooms</h2>
+
+            <div class="room-info">
+                <h3>Total rooms in Guest House</h3>
+                <p>--</p>  </div>
+
+            <div class="room-details">
+                <h4>Kurunji</h4>
+                <ul>
+                    <li>Normal Rooms: 33</li>
+                    <li>Mini Suite: 1</li>
+                    <li>Suite: 2</li>
+                </ul>
+            </div>
+
+            <div class="room-details">
+                <h4>Marutham</h4>
+                <ul>
+                    <li>Normal Rooms: 17</li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-box2">
+            <h2>View Bookings</h2>
+            <section class="booking-details">
+                <div class="date-input">
+                    <label for="booking-date">Select Date:</label>
+                    <input type="date" id="booking-date" name="booking-date">
+                </div>
+                <ul>
+                    <li>Allocated in Kurunji</li>
+                    <li>Not Allocated in Kurunji</li>
+                    <li>Allocated in Marutham</li>
+                    <li>Not Allocated in Marutham</li>
+                    <li>Suite Room</li>
+                    <li>Mini Suite Room</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <div class="footer">
+        Developed By MadeEasy, NIT-T
+      </div>
+      <script>
+        // Function to navigate to the home page
+        function goToHome() {
+            // Replace '#' with the actual URL of your home page
+            window.location.href = "4stud.html";
+        }
+    
+        // Function to logout
+        function logout() {
+            // Add your logout functionality here
+            alert("Logout Successful!");
+            // Redirect to the login page or any other appropriate page after logout
+            window.location.href = "2home_page.html";
+        }
+    
+        // Event listener to call the goToHome function when the "Home" link is clicked
+        document.querySelector('.navigation a:nth-child(1)').addEventListener('click', goToHome);
+    
+        // Event listener to call the logout function when the "Logout" link is clicked
+        document.querySelector('.navigation a:nth-child(3)').addEventListener('click', logout);
+    </script>
+    
+</body>
+</html>

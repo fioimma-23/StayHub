@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f3f3; /* Light gray background */
+    }
+
+    .login-form {
+      width: 300px;
+      margin: 100px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-form h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333333;
+    }
+
+    .login-form label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333333;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"],
+    .login-form select {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    .login-form button[type="submit"] {
+      width: 100%; /* Make the button full-width */
+      background-color: #0f3838;
+      color: white; /* Change the text color */
+      padding: 10px 0; /* Adjust the padding */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-form button[type="submit"]:hover {
+      background-color: #0f3838;
+    }
+
+    .login-form button[type="button"] {
+      width: 100%; /* Make the button full-width */
+      background-color: #0f3838;
+      color: white; /* Change the text color */
+      padding: 10px 0; /* Adjust the padding */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-form button[type="button"]:hover {
+      background-color: #0f3838;
+    }
+
+    .login-form a {
+      display: block;
+      text-align: center; /* Center align the forgot password link */
+      margin-top: 10px; /* Adjust the margin */
+      color: #333333;
+      text-decoration: none;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0a0b3d;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+  </style>
+  
+</head>
+<body>
+
+<div class="body">
+  <div class="logo">
+    <img src="logo.png" alt="Logo">
+  </div>
+
+  <div class="login-form">
+    <h1>Login</h1>
+    <form id="loginForm" method="post" >
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Your Username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Your Password" required>
+
+      <label for="mode">Mode:</label>
+      <select id="mode" name="mode">
+        <option value="automatic">Automatic</option>
+        <option value="manual">Manual</option>
+      </select>
+      <button type="button" onclick="login()">Log In</button>
+      <!--<button type="submit">Log In</button>-->
+      <p></p>
+      <button type="Button" onclick="window.location.href='1register.html';">Register</button>
+    </form>
+  </div>
+
+  <div class="footer">
+    Developed By MadeEasy, NIT-T
+  </div>
+</div>
+<script>
+  // Function to handle login
+  function login() {
+    // Get username and password from form
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    // API endpoint URL
+    var apiUrl = 'https://localhost:44314/api/NITTRoomBookAPI/LogIn?UserId=' + encodeURIComponent(username) + '&Password=' + encodeURIComponent(password);
+
+    // Make HTTP request
+    fetch(apiUrl)
+      .then(response => {
+        // Check if response is successful
+        if (!response.ok) {
+          throw new Error('HTTP Error: ' + response.status);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Check if API call was successful
+        if (data.errorCode === 0 && data.errorMessage === 'Success') {
+          // Redirect to the next page
+          window.location.href = "9auth.html";
+        } else {
+          // Display error message
+          var errorMessage = "Invalid Username/Password."; // Replace with the actual error message if available
+  if (errorMessage.trim() !== "") {
+    showErrorPopup(errorMessage);
+  }
+          document.getElementById("error-message").innerText = data.errorMessage;
+        }
+      })
+      .catch(error => {
+        // Display error message
+        document.getElementById("error-message").innerText = error.message;
+      });
+  }
+
+  // Define a function to show popup with error message
+  function showErrorPopup(message) {
+    alert(message); // Show popup with error message
+  }
+
+  function showErrorPopup(message) {
+    alert(message); // Show popup with error message
+  }
+
+</script>
+<script>
+    // Function to navigate to the home page
+    function goToHome() {
+        // Replace '#' with the actual URL of your home page
+        window.location.href = "index.html";
+    }
+
+    // Function to logout
+    function logout() {
+        // Add your logout functionality here
+        alert("Logout Successful!");
+        // Redirect to the login page or any other appropriate page after logout
+        window.location.href = "login.html";
+    }
+
+    // Event listener to call the goToHome function when the "Home" link is clicked
+    document.querySelector('.navigation a:nth-child(1)').addEventListener('click', goToHome);
+
+    // Event listener to call the logout function when the "Logout" link is clicked
+    document.querySelector('.navigation a:nth-child(3)').addEventListener('click', logout);
+</script>
+
+</body>
+</html>

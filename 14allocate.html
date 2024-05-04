@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest House Availability</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f3f3; /* Light gray background */
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #f0f0f0;
+    }
+    .location p {
+      margin: 0;
+      font-size: 0.8rem;
+    }
+    .navigation {
+      display: flex;
+      gap: 1rem;
+    }
+    .navigation a {
+      text-decoration: none;
+      color: black;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+    }
+    .buttons a {
+      background-color: #003380;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+    .buttons a:hover {
+      background-color: #001f4d;
+    }
+    table, th, td {
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px; /* Adjusted padding */
+      text-align: center;
+      border: 1px solid black;
+    }
+    input[type=checkbox] {
+      width: 15px;
+      height: 15px;
+      background-color: lightgray;
+      border: 1px solid black;
+      margin: 0 auto; /* Center align */
+      display: block; /* Added */
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    table {
+      width: 80%; /* Adjust width as needed */
+      margin: 0 auto; /* Center align */
+      padding: 10px; /* Adjust padding as needed */
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0a0b3d;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+    /* .logo {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .logo img {
+      width: 150px;
+      height: auto;
+    } */
+    .allocate-btn {
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      padding: 10px;
+      background-color: #270846;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .allocate-btn:hover {
+      background-color: #293145;
+    }
+  </style>
+</head>
+<body>
+  
+<div class="body">
+  <div class="logo">
+    <img src="logo.png" alt="Logo">
+  </div>
+  <header>
+    <div class="navigation">
+      <a href="#">Home</a>
+      <a href="#">|</a>
+      <a href="#">Logout</a>
+    </div>
+  </header>
+  <div class="buttons">
+    <div class="booking-button" id="updateAvailability"><a href="11update.html">Update Availability</a></div>
+    <div class="booking-button" id="viewBookings"><a href="12staff.html">View Booking</a></div>
+    <div class="booking-button" id="allocation"><a href="14allocate.html">Allocation</a></div>
+  </div>
+
+  <table>
+    <caption>Guest House Allocation</caption>
+    <thead>
+      <tr>
+        <th colspan="5">Kurunji Guest House</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <!-- 33 checkboxes for Kurinji Guest House -->
+        <td><label><input type="checkbox">1</label></td>
+        <td><label><input type="checkbox">2</label></td>
+        <td><label><input type="checkbox">3</label></td>
+        <td><label><input type="checkbox">4</label></td>
+        <td><label><input type="checkbox">5</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox">6</label></td>
+        <td><label><input type="checkbox">7</label></td>
+        <td><label><input type="checkbox">8</label></td>
+        <td><label><input type="checkbox">9</label></td>
+        <td><label><input type="checkbox">10</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox">11</label></td>
+        <td><label><input type="checkbox">12</label></td>
+        <td><label><input type="checkbox">13</label></td>
+        <td><label><input type="checkbox">14</label></td>
+        <td><label><input type="checkbox">15</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox">16</label></td>
+        <td><label><input type="checkbox">17</label></td>
+        <td><label><input type="checkbox">18</label></td>
+        <td><label><input type="checkbox">19</label></td>
+        <td><label><input type="checkbox">20</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox">21</label></td>
+        <td><label><input type="checkbox">22</label></td>
+        <td><label><input type="checkbox">23</label></td>
+        <td><label><input type="checkbox">24</label></td>
+        <td><label><input type="checkbox">25</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox">26</label></td>
+        <td><label><input type="checkbox">27</label></td>
+        <td><label><input type="checkbox">28</label></td>
+        <td><label><input type="checkbox">29</label></td>
+        <td><label><input type="checkbox">30</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox">31</label></td>
+        <td><label><input type="checkbox">32</label></td>
+        <td><label><input type="checkbox">33</label></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+    <!-- Marutham -->
+    <thead>
+      <tr>
+        <th colspan="5">Marutham</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <!-- 17 checkboxes for Marutham -->
+        <td><label><input type="checkbox">1</label></td>
+        <td><label><input type="checkbox">2</label></td>
+        <td><label><input type="checkbox">3</label></td>
+        <td><label><input type="checkbox">4</label></td>
+        <td><label><input type="checkbox">5</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox">6</label></td>
+        <td><label><input type="checkbox">7</label></td>
+        <td><label><input type="checkbox">8</label></td>
+        <td><label><input type="checkbox">9</label></td>
+        <td><label><input type="checkbox">10</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox">11</label></td>
+        <td><label><input type="checkbox">12</label></td>
+        <td><label><input type="checkbox">13</label></td>
+        <td><label><input type="checkbox">14</label></td>
+        <td><label><input type="checkbox">15</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox">16</label></td>
+        <td><label><input type="checkbox">17</label></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+    <!-- Suite Rooms -->
+    <thead>
+      <tr>
+        <th colspan="2">Suite Rooms</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <!-- 2 checkboxes for Suite Rooms -->
+        <td><label><input type="checkbox">1</label></td>
+        <td><label><input type="checkbox">2</label></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+    <!-- Mini-Suite Rooms -->
+    <thead>
+      <tr>
+        <th colspan="2">Mini-Suite Rooms</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <!-- 2 checkboxes for Mini-Suite Rooms -->
+        <td><label><input type="checkbox">1</label></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="allocate-btn">Allocate</button>
+  <div class="footer">
+    Developed By MadeEasy, NIT-T
+  </div>
+</div>
+<script>
+  // Function to navigate to the home page
+  function goToHome() {
+      // Replace '#' with the actual URL of your home page
+      window.location.href = "11update.html";
+  }
+
+  // Function to logout
+  function logout() {
+      // Add your logout functionality here
+      alert("Logout Successful!");
+      // Redirect to the login page or any other appropriate page after logout
+      window.location.href = "2home_page.html";
+  }
+
+  // Event listener to call the goToHome function when the "Home" link is clicked
+  document.querySelector('.navigation a:nth-child(1)').addEventListener('click', goToHome);
+
+  // Event listener to call the logout function when the "Logout" link is clicked
+  document.querySelector('.navigation a:nth-child(3)').addEventListener('click', logout);
+</script>
+
+
+</body>
+</html>

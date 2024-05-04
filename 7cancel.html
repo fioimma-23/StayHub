@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guest House Cancellation Request</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f3f3; /* Light gray background */
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #f0f0f0;
+    }
+    .location p {
+      margin: 0;
+      font-size: 0.8rem;
+    }
+
+    .navigation {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .navigation a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+    }
+
+    .buttons a {
+      background-color: #003380;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+
+    .buttons a:hover {
+      background-color: #001f4d;
+    }
+    .content {
+      width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .text-input,
+    .text-area {
+      width: calc(100% - 12px);
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-actions {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .submit-btn,
+    .reset-btn {
+      width: calc(50% - 5px);
+      padding: 12px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      background-color: #0a4a0c;
+      color: white;
+    }
+
+    .reset-btn {
+      background-color: #4f0d08;
+      color: white;
+    }
+
+    .reset-btn:hover,
+    .submit-btn:hover {
+      background-color: #0f4e11;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0a0b3d;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="body">
+  <div class="logo">
+    <img src="logo.png" alt="Logo">
+  </div>
+  <header>
+    <div class="navigation">
+      <a href="#">Home</a>
+      <a href="#">|</a>
+      <a href="#">Logout</a>
+    </div>
+  </header>
+  <div class="buttons">
+    <div class="booking-button" id="makeBooking"><a href="5book.html">Make a Booking</a></div>
+    <div class="booking-button" id="cancelBooking"><a href="7cancel.html">Cancel Booking</a></div>
+    <div class="booking-button" id="viewRooms"><a href="6view.html">View Available Rooms</a></div>
+    <div class="booking-button" id="mail"><a href="8mail.html">Mail</a></div>
+    <div class="booking-button" id="aboutGuestHouse"><a href="8about.html">About Guest House</a></div>
+  </div>
+  <div class="content">
+    <h2>Guest House Cancellation Request</h2>
+    <form id="cancelForm" action="api/NITTRoomBookAPI/GHBookingCancel" method="post">
+      <div class="form-group">
+        <label for="booking-id">Booking Id:</label>
+        <input type="text" id="booking-id" name="BookingId" class="text-input" required>
+      </div>
+      <div class="form-group">
+        <label for="student-id">Student Id:</label>
+        <input type="text" id="student-id" name="StudentId" class="text-input" required>
+      </div>
+      <div class="form-group">
+        <label for="student-name">Student Name:</label>
+        <input type="text" id="student-name" name="StudentName" class="text-input" required>
+      </div>
+      <div class="form-group">
+        <label for="no-of-rooms">No. of Rooms:</label>
+        <input type="number" id="no-of-rooms" name="NumberOfRooms" class="text-input" required>
+      </div>
+      <div class="form-group">
+        <label for="no-of-person">No. of person:</label>
+        <input type="number" id="no-of-person" name="NumberOfPersons" class="text-input" required>
+      </div>
+      <div class="form-group">
+        <label for="reason">Reason:</label>
+        <textarea id="reason" name="Reason" class="text-area" required></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="submit-btn">Submit</button>
+        <button type="reset" class="reset-btn">Reset</button>
+      </div>
+    </form>
+  </div>
+  <div class="footer">
+    Developed By MadeEasy, NIT-T
+  </div>
+  <script>
+    // Function to navigate to the home page
+    function goToHome() {
+      // Replace '#' with the actual URL of your home page
+      window.location.href = "4stud.html";
+    }
+
+    // Function to logout
+    function logout() {
+      // Add your logout functionality here
+      alert("Logout Successful!");
+      // Redirect to the login page or any other appropriate page after logout
+      window.location.href = "2home_page.html";
+    }
+
+    // Event listener to call the goToHome function when the "Home" link is clicked
+    document.querySelector('.navigation a:nth-child(1)').addEventListener('click', goToHome);
+
+    // Event listener to call the logout function when the "Logout" link is clicked
+    document.querySelector('.navigation a:nth-child(3)').addEventListener('click', logout);
+
+    // Handling form submission
+    document.getElementById("cancelForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var form = event.target;
+      var data = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        body: data
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert(data);
+        form.reset();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert("Error occurred while submitting the form.");
+      });
+    });
+  </script>
+</body>
+</html>

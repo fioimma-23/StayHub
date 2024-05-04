@@ -1,0 +1,123 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3f3f3; /* Light gray background */
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #f0f0f0;
+}
+
+/* .institution-name h1 {
+    margin: 0;
+    line-height: 1.5;
+} */
+
+.location p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.navigation {
+  display: flex;
+  gap: 1rem;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: black;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.buttons a {
+  background-color: #003380;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.buttons a:hover {
+  background-color: #001f4d;
+}
+
+main {
+  padding: 2rem;
+}
+
+main h2 {
+  margin-bottom: 1rem;
+}
+
+.content-box {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex; /* Make the box a flex container */
+  flex-direction: column; /* Stack elements vertically */
+  gap: 1rem; /* Add some space between elements */
+}
+
+.room-info {
+  display: flex; /* Make room info a flex container */
+  justify-content: space-between; /* Distribute horizontally */
+  align-items: center; /* Align vertically */
+}
+.room-details {
+  justify-content: flex-end;
+  align-items: end;
+  align-content: flex-end;
+}
+
+.room-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.room-details li {
+  margin-bottom: 0.5rem;
+}
+
+.content-box2 {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.booking-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.booking-details li {
+  margin-bottom: 0.5rem;
+  color: #333; /* Darker font color */
+  background-color: #f5f5f5; /* Lighter background color */
+}
+
+.date-input {
+  margin-bottom: 1rem;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0a0b3d;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+}

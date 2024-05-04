@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3; /* Light gray background */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #fff; /* White background for the container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #333; /* Dark gray text color */
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #555; /* Dark gray text color */
+        }
+
+        main {
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333; /* Dark gray text color */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* Dark gray text color */
+        }
+
+        input[type="text"],
+        input[type="submit"],
+        .login-button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        input[type="text"] {
+            border: 1px solid #ddd;
+        }
+
+        input[type="submit"] {
+            cursor: pointer;
+            background-color: #0a0b3d; /* Blue submit button */
+            color: #fff; /* White text color */
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .login-button {
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            padding: 8px 16px;
+            margin-right: 40px;
+            flex: 1;
+            text-align: center; /* Equal width for all buttons */
+        }
+
+        .login-button:nth-child(1) {
+            background-color: #380f0f; /* Dark Red */
+        }
+
+        .login-button:nth-child(2) {
+            background-color: #0f3838; /* Dark Cyan */
+        }
+
+        .login-button:nth-child(3) {
+            background-color: #2a0d3b; /* Dark Purple */
+        }
+
+        .login-button:last-child {
+            margin-right: 0;
+        }
+
+        .login-button a {
+            text-decoration: none;
+            color: #fff;
+            text-align: center;
+        }
+
+        .login-button:hover {
+            background-color: #36050a; /* Darker blue on hover */
+        }
+
+        nav {
+            margin-top: 30px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #0a3640; /* Blue link color */
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #31084a; /* Darker blue on hover */
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #0a0b3d; /* Dark blue footer */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="body">
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>StayHub Login</h1>
+        </header>
+        <form id="loginForm" action=" ">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input type="submit" id="nextButton" value="Next">
+            </div>
+        </form>
+        <p>Faculty/Staff/Students can access their respective page directly through the buttons below.</p>
+        <div style="display: flex;">
+            <div class="login-button"><a href="9faclogin.html">Faculty Login</a></div>
+            <div class="login-button"><a href="3studlogin.html">Student / Faculty Login</a></div>
+            <div class="login-button"><a href="11stafflogin.html">Staff Login</a></div>
+        </div>
+    </div>
+    <div class="footer">
+        Developed By MadeEasy, NIT-T
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("loginForm");
+            const nextButton = document.getElementById("nextButton");
+            const facultyLoginButton = document.getElementById("facultyLogin");
+            const studentLoginButton = document.getElementById("studentLogin");
+            const staffLoginButton = document.getElementById("staffLogin");
+
+            nextButton.addEventListener("click", function (event) {
+                event.preventDefault();
+                form.submit();
+            });
+
+            facultyLoginButton.addEventListener("click", function (event) {
+                event.preventDefault();
+                form.submit();
+            });
+
+            studentLoginButton.addEventListener("click", function (event) {
+                event.preventDefault();
+                form.submit();
+            });
+
+            staffLoginButton.addEventListener("click", function (event) {
+                event.preventDefault();
+                form.submit();
+            });
+        });
+    </script>
+</body>
+</html>

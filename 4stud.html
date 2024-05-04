@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student home page</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3; /* Light gray background */
+  }
+
+.header {
+  background-color: #fff;
+  color: #060000dc;
+  text-decoration-color: black;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+.header nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header nav li {
+  margin-right: 10px;
+}
+
+.header nav a {
+  color: #060000dc;
+  text-decoration: none;
+  cursor: pointer; /* Add cursor pointer */
+}
+
+.hero {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.buttons a {
+  background-color: #003380;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.buttons a:hover {
+  background-color: #001f4d;
+}
+
+.content {
+  flex: 1; /* This ensures content takes up remaining space */
+  padding: 20px;
+}
+
+.content h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.content p {
+  line-height: 1.5;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0a0b3d;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+  <div class="body">
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+<header class="header">
+  <!-- <h1>National Institute of Technology<br>Tiruchirappalli</h1> -->
+  <nav>
+    <li><a href="#" onclick="goToHomePage()">Home</a></li>
+    <li><a>|</a></li>
+    <li><a href="#" onclick="logout()">Logout</a></li>
+  </nav>
+</header>
+<section class="hero">
+  <h2>Welcome to NIT Guest House!</h2>
+  <div class="buttons">
+    <div class="booking-button" id="makeBooking"><a href="5book.html">Make a Booking</a></div>
+    <div class="booking-button" id="cancelBooking"><a href="7cancel.html">Cancel Booking</a></div>
+    <div class="booking-button" id="viewRooms"><a href="6view.html">View Available Rooms</a></div>
+    <div class="booking-button" id="mail"><a href="8mail.html">Mail</a></div>
+    <div class="booking-button" id="aboutGuestHouse"><a href="8about.html">About Guest House</a></div>
+  </div>
+</section>
+<section class="content">
+  <h3>Vision</h3>
+  <p>To be a leading destination globally trusted for hospitality excellence where comfort and convenience integrate to provide memorable stays for our guests.</p>
+  <h3>Mission</h3>
+  <p>To offer comfortable accommodations and exceptional services for guests seeking a relaxing and enjoyable experience. To create a welcoming environment that caters to the diverse needs of our guests. To prioritize guest satisfaction by consistently delivering high-quality services and amenities. To promote a culture of hospitality and professionalism among our staff members.</p>
+</section>
+<div class="footer">
+  Developed By MadeEasy, NIT-T
+  <script>
+    // Function to navigate to the home page
+    function goToHome() {
+        // Replace '#' with the actual URL of your home page
+        window.location.href = "4stud.html";
+    }
+
+    // Function to logout
+    function logout() {
+        // Add your logout functionality here
+        alert("Logout Successful!");
+        // Redirect to the login page or any other appropriate page after logout
+        window.location.href = "2home_page.html";
+    }
+
+    // Event listener to call the goToHome function when the "Home" link is clicked
+    document.querySelector('.navigation a:nth-child(1)').addEventListener('click', goToHome);
+
+    // Event listener to call the logout function when the "Logout" link is clicked
+    document.querySelector('.navigation a:nth-child(3)').addEventListener('click', logout);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Inbox</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f3f3; /* Light gray background */
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #f0f0f0;
+    }
+    .location p {
+      margin: 0;
+      font-size: 0.8rem;
+    }
+
+    .navigation {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .navigation a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+    }
+
+    .buttons a {
+      background-color: #003380;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+
+    .buttons a:hover {
+      background-color: #001f4d;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .email-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .email-item {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      cursor: pointer; /* Add cursor pointer */
+    }
+
+    .email-item:last-child {
+      border-bottom: none;
+    }
+
+    .email-item .sender {
+      flex: 1;
+    }
+
+    .email-item .subject {
+      flex: 2;
+    }
+
+    .email-item .date {
+      flex: 1;
+      text-align: right;
+    }
+
+    .email-item:hover {
+      background-color: #f9f9f9;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0a0b3d;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="body">
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+    <header>
+      <div class="navigation">
+        <a href="#">Home</a>
+        <a href="#">|</a>
+        <a href="#" onclick="logout()">Logout</a>
+      </div>
+    </header>
+
+    <div class="container">
+    </div>
+
+    <div class="footer">
+      Developed By MadeEasy, NIT-T
+    </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      fetchBookingRequests();
+    });
+
+    function fetchBookingRequests() {
+      var apiURL = 'https://localhost:44314/api/NITTRoomBookAPI/GHBookingRequestedList';
+
+      var requestOptions = {
+        method: 'POST',
+        headers: {
+          'Accept': '*/*',
+          'Content-Type': 'application/json'
+        }
+      };
+      fetch(apiURL, requestOptions)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to fetch booking requests');
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data && data.result && data.result.length > 0) {
+            displayBookingRequests(data.result);
+          } else {
+            displayNoBookingRequests();
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching booking requests:', error);
+          displayError('Error fetching booking requests: ' + error.message);
+        });
+    }
+
+    function displayBookingRequests(bookingRequests) {
+      var container = document.querySelector('.container');
+
+      var emailList = document.createElement('ul');
+      emailList.classList.add('email-list');
+
+      bookingRequests.forEach(function(bookingRequest) {
+        var emailItem = document.createElement('li');
+        emailItem.classList.add('email-item');
+
+        var sender = document.createElement('div');
+        sender.classList.add('sender');
+        sender.textContent = bookingRequest.guestName; // Adjust based on your data
+        emailItem.appendChild(sender);
+
+        var subject = document.createElement('div');
+        subject.classList.add('subject');
+        subject.textContent = bookingRequest.approval === 'A' ? 'Approved' : 'Declined';
+// Adjust based on your data
+        emailItem.appendChild(subject);
+		
+        var Booking = document.createElement('div');
+        Booking.classList.add('Booking');
+        Booking.textContent = bookingRequest.bookingId;
+        emailItem.appendChild(Booking);
+
+        var date = document.createElement('div');
+        date.classList.add('date');
+        date.textContent = new Date(bookingRequest.dateFrom).toLocaleDateString(); // Adjust based on your data
+        emailItem.appendChild(date);
+
+
+      emailItem.addEventListener('click', function() {
+    // Get the booking ID from the email item or from wherever you have it stored
+    var bookingId = bookingRequest.bookingId; // Assuming `bookingRequest` has the 
+    var NoofRooms = bookingRequest.noofRooms; // Assuming `bookingRequest` has the 
+    var NoofPersons = bookingRequest.noofPersons; // Assuming `bookingRequest` has the 
+    var dateFrom = bookingRequest.dateFrom; // Assuming `bookingRequest` has the 
+    var dateTo = bookingRequest.dateTo; // Assuming `bookingRequest` has the 
+
+    // Check if bookingId is valid
+    // if (bookingId) {
+    //     // Redirect to the next page with the booking ID as a query parameter
+    //     window.location.href = '10request.html?id=' + bookingId+'&noOfRooms=' + NoofRooms+'&NoofPersons='+NoofPersons+'&dateFrom=' + dateFrom+'&dateTo='+dateTo; // Adjust the URL as needed
+    // } else {
+    //     console.error('Booking ID is undefined.');
+    // }
+});
+
+
+        emailList.appendChild(emailItem);
+      });
+
+      container.appendChild(emailList);
+    }
+
+    function displayNoBookingRequests() {
+      var container = document.querySelector('.container');
+      container.innerHTML = '<h1>No booking requests found</h1>';
+    }
+
+    function displayError(errorMessage) {
+      var container = document.querySelector('.container');
+      container.innerHTML = '<h1>' + errorMessage + '</h1>';
+    }
+
+    // Function to navigate to the home page
+    function goToHome() {
+      // Replace '#' with the actual URL of your home page
+      window.location.href = "4stud.html";
+    }
+  
+    // Function to logout
+    function logout() {
+      // Add your logout functionality here
+      alert("Logout Successful!");
+      // Redirect to the login page or any other appropriate page after logout
+      window.location.href = "2home_page.html";
+    }
+  
+    // Event listener to call the goToHome function when the "Home" link is clicked
+    document.querySelector('.navigation a:nth-child(1)').addEventListener('click', goToHome);
+  
+    // Event listener to call the logout function when the "Logout" link is clicked
+    document.querySelector('.navigation a:nth-child(3)').addEventListener('click', logout);
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3f3f3; /* Light gray background */
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #f0f0f0;
+}
+.location p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+.navigation {
+  display: flex;
+  gap: 1rem;
+}
+.navigation a {
+  text-decoration: none;
+  color: black;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+.buttons a {
+  background-color: #003380;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.buttons a:hover {
+  background-color: #001f4d;
+}
+table,
+th,
+td {
+  border-collapse: collapse;
+}
+th {
+  padding: 10px; /* Adjusted padding */
+  text-align: center;
+  border: 1px solid black;
+}
+td {
+  padding: 10px; /* Adjusted padding */
+  text-align: center;
+  border: 1px solid black; /* Added border */
+}
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  background-color: lightgray;
+  border: 1px solid black;
+  margin: 0 auto; /* Center align */
+  display: block; /* Added */
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+table {
+  width: 80%; /* Adjust width as needed */
+  margin: 0 auto; /* Center align */
+  padding: 10px; /* Adjust padding as needed */
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0a0b3d;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+}
+/* .logo {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .logo img {
+    width: 150px;
+    height: auto;
+  } */
+.allocate-btn {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #270846;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.allocate-btn:hover {
+  background-color: #293145;
+}

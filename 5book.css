@@ -1,0 +1,113 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3f3f3; /* Light gray background */
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #f0f0f0;
+}
+
+.location p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.navigation {
+  display: flex;
+  gap: 1rem;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: black;
+}
+
+.main {
+  margin: 20px auto 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 5px 5px 10px rbga(0, 0, 0, 0.1);
+  max-width: 50%;
+  border-radius: 20px;
+}
+
+.guest-information,
+.room-availability,
+.booking-form {
+  margin-bottom: 20px;
+}
+
+.guest-information h2,
+.room-availability h2,
+.booking-form h2 {
+  margin-bottom: 10px;
+}
+
+.room-availability table,
+.booking-form table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.room-availability th,
+.room-availability td,
+.booking-form th,
+.booking-form td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.room-availability th,
+.booking-form th {
+  background-color: #f2f2f2;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+select {
+  width: calc(100% - 10px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="date"],
+input[type="time"] {
+  width: 48%;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+  margin-top: 10px auto 5px auto;
+  background-color: #45a049;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0a0b3d;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+}

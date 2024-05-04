@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student booking page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3; /* Light gray background */
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #f0f0f0;
+        }
+
+        .location p {
+            margin: 0;
+            font-size: 0.8rem;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .guest-information, .room-availability, .booking-form {
+            margin-bottom: 20px;
+        }
+
+        .guest-information h2,
+        .room-availability h2,
+        .booking-form h2 {
+            margin-bottom: 10px;
+        }
+
+        .room-availability table,
+        .booking-form table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .room-availability th,
+        .room-availability td,
+        .booking-form th,
+        .booking-form td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .room-availability th,
+        .booking-form th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="email"],
+        select {
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="date"],
+        input[type="time"] {
+            width: 48%;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #0a0b3d;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="logo">
+          <img src="logo.png" alt="Logo">
+        </div>
+        <header>
+            <div class="navigation">
+                <a href="#">Home</a>
+                <a href="#">|</a>
+                <a href="#">Logout</a>
+            </div>
+        </header>
+        <main class="main">
+            <section class="guest-information">
+                <h2>Name of the Guest:</h2>
+                <input type="text" id="guestName" name="guestName">
+                <h2>Mobile Number:</h2>
+                <input type="tel" id="mobileNumber" name="mobileNumber">
+                <h2>Email ID:</h2>
+                <input type="email" id="emailID" name="emailID">
+            </section>
+            <section class="room-availability">
+                <h2>Rooms Available</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Details</th>
+                            <th>Date</th>
+                            <!-- <th>Time</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Arrival</td>
+                            <td><input type="date" id="check-in" name="check-in"></td>
+                            <!-- <td><input type="time" id="arrivalTime" name="arrivalTime"></td> -->
+                        </tr>
+                        <tr>
+                            <td>Departure</td>
+                            <td><input type="date" id="check-out" name="check-out"></td>
+                            <!-- <td><input type="time" id="departureTime" name="departureTime"></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="booking-form">
+                <h2>Booking Form</h2>
+                <form id="registrationForm" method="post">
+                    <label for="rooms">No. of Rooms required:</label>
+                    <input type="number" id="rooms" name="rooms">
+                    <br>
+                    <label for="guests">No. of person (s):</label>
+                    <input type="number" id="guests" name="guests">
+                    <br>
+                    <label for="category">Category:</label>
+                    <select id="category" name="category">
+                        <option value="">Select a Category</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Suite">Suite</option>
+                        <option value="Mini-Suite">Mini-Suite</option>
+                    </select>
+                    <br>
+                    <h2>Details of the person making the booking:</h2>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="Name">
+                    <br>
+                    <label for="staff-no">Staff No:</label>
+                    <input type="text" id="Id" name="Id">
+                    <br>
+                    <label for="designation">Designation:</label>
+                    <input type="text" id="designation" name="Designation">
+                    <br>
+                    <label for="contact-no">Contact No:</label>
+                    <input type="tel" id="contact-no" name="Contact-no">
+                    <br>
+                    <label for="department">Department:</label>
+                    <input type="text" id="department" name="Department">
+                    <br>
+                    <label for="email">E mail ID:</label>
+                    <input type="email" id="email" name="Email">
+                    <br>
+                    <label for="food">Food:</label>
+                    <input type="radio" id="food-yes" name="food" value="yes"> Yes
+                    <input type="radio" id="food-no" name="food" value="no"> No
+                    <br>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </section>
+        </main>
+        <div class="footer">
+            Developed By MadeEasy, NIT-T
+        </div>
+    </div>
+	<script>
+// Function to handle form submission
+function submitForm(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get form data
+   var formData = {
+                rowId: 0,
+                bookingId: '',
+                guestName: document.getElementById('guestName').value,
+                guestContactNo: document.getElementById('mobileNumber').value,
+                guestEmail: document.getElementById('emailID').value,
+                dateFrom: document.getElementById('check-in').value,
+                dateTo: document.getElementById('check-out').value,
+                noofRooms: parseInt(document.getElementById('rooms').value),
+                noofPersons: parseInt(document.getElementById('guests').value),
+                category: document.getElementById('category').value,
+                bookingName: document.getElementById('name').value,
+                studOrStaffID: document.getElementById('Id').value,
+                designation: document.getElementById('designation').value,
+                bookingContactNo: document.getElementById('contact-no').value,
+                department: document.getElementById('department').value,
+                bookingEmail: document.getElementById('email').value,
+                food: '',
+                status: "Pending", // Assuming status is always "Pending" for new bookings
+                approved: "No" // Assuming approved is always "No" for new bookings
+            };
+
+    // Convert form data to JSON
+    var jsonData = JSON.stringify(formData);
+
+    // API endpoint URL (Replace with your actual URL)
+    var apiURL = 'https://localhost:44314/api/NITTRoomBookAPI/GHBookingRequest';
+
+    // Set Fetch API options
+    var requestOptions = {
+        method: 'POST',
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json'
+        },
+        body: jsonData
+    };
+
+    // Make HTTP POST request using Fetch API
+    fetch(apiURL, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            // Check if the API call was successful
+            if (data.errorCode === 0) {
+                // Display success message and redirect to next page
+                alert("Guest House Booking successfull!");
+                window.location.href = "4stud.html";
+            } else {
+                // Display error message
+                alert('Error: ' + data.errorMessage);
+            }
+        })
+        .catch(error => {
+            // Display error message if there's a fetch error
+            console.error('Error:', error);
+            alert('Error: Failed to submit the form. Please try again later.');
+        });
+}
+// Add event listener for form submission
+document.getElementById("registrationForm").addEventListener("submit", submitForm);
+</script>
+<script>
+    // Function to navigate to the home page
+    function goToHome() {
+        // Replace '#' with the actual URL of your home page
+        window.location.href = "4stud.html";
+    }
+
+    // Function to logout
+    function logout() {
+        // Add your logout functionality here
+        alert("Logout Successful!");
+        // Redirect to the login page or any other appropriate page after logout
+        window.location.href = "2home_page.html";
+    }
+
+    // Event listener to call the goToHome function when the "Home" link is clicked
+    document.querySelector('.navigation a:nth-child(1)').addEventListener('click', goToHome);
+
+    // Event listener to call the logout function when the "Logout" link is clicked
+    document.querySelector('.navigation a:nth-child(3)').addEventListener('click', logout);
+</script>
+</body>
+</html>

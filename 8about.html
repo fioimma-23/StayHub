@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About Guest house</title>
+  <style>
+     body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3; /* Light gray background */
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #f0f0f0;
+        }
+        .location p {
+            margin: 0;
+            font-size: 0.8rem;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: black;
+        }
+        .buttons {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.buttons a {
+  background-color: #003380;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.buttons a:hover {
+  background-color: #001f4d;
+}
+    h1 {
+      text-align: center;
+    }
+    .guest-house-info {
+      margin: 20px auto;
+      width: 5000px;
+      border: 1px solid #ddd;
+      padding: 20px;
+    }
+    .image-container {
+    overflow: hidden; /* This prevents overflowing content outside the container */
+}
+
+.image-container img {
+    float: left; /* Floats each image to the left */
+    margin: 5px; /* Optional spacing between images */
+}
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0a0b3d;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+    <div class="body">
+        <div class="logo">
+          <img src="logo.png" alt="Logo">
+        </div>
+    <header>
+        <div class="navigation">
+            <a href="#">Home</a>
+            <a href="#">|</a>
+            <a href="#">Logout</a>
+        </div>
+    </header>
+    <div class="buttons">
+      <div class="booking-button" id="makeBooking"><a href="5book.html">Make a Booking</a></div>
+    <div class="booking-button" id="cancelBooking"><a href="7cancel.html">Cancel Booking</a></div>
+    <div class="booking-button" id="viewRooms"><a href="6view.html">View Available Rooms</a></div>
+    <div class="booking-button" id="mail"><a href="8mail.html">Mail</a></div>
+    <div class="booking-button" id="aboutGuestHouse"><a href="8about.html">About Guest House</a></div>
+    </div>
+
+  <!-- <h1>National Institute of Technology</h1> -->
+
+  <div class="guest-house-info">
+    <h2>Guest House</h2>
+    <p>Guest House-1 (Kurunji house):</p>
+    <ul>
+      <li>Ground floor 3 suite rooms.</li>
+      <li>First floor 11 rooms,</li>
+      <li>second floor 11 rooms and</li>
+      <li>third floor 11 rooms.</li>
+    </ul>
+    <p>Office room 2.</p>
+
+    <div class="image-container">
+        <img src="kur.jpg" alt="Kurinji">
+        <!-- <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3"> -->
+    </div>
+    <h2>Guest House-2 (Marutham house):</h2>
+    <ul>
+      <li>Ground floor ground floor 4 rooms,</li>
+      <li>first floor 9 rooms and</li>
+      <li>second floor 4 rooms.</li>
+    </ul>
+    <div class="image-container">
+        <img src="mar.jpg" alt="Marutham">
+        <!-- <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3"> -->
+    </div>
+    <h2>Guest House Advisory committee</h2>
+    <p>Dr. P. Saikrishnan (Professor, Maths), Chairperson</p>
+    <p>Dr. A. Meenatchi Sundaram (Associate Professor, Arch.), Member</p>
+    <p>Dr. Mashudha Sulthana (Assistant Professor, Civil), Member</p>
+    <p>Dr. Shobitha Poulose (Assistant Professor, DoMS), Member</p>
+    <p>Dr. Ruben Sudhakar (Associate Professor, DEE), Member</p>
+    <p>Assistant Registrar (Establishment), Convener</p>
+  </div>
+  <div class="footer">
+    Developed By MadeEasy, NIT-T
+  </div>
+  <script>
+    // Function to navigate to the home page
+    function goToHome() {
+        // Replace '#' with the actual URL of your home page
+        window.location.href = "4stud.html";
+    }
+
+    // Function to logout
+    function logout() {
+        // Add your logout functionality here
+        alert("Logout Successful!");
+        // Redirect to the login page or any other appropriate page after logout
+        window.location.href = "2home_page.html";
+    }
+
+    // Event listener to call the goToHome function when the "Home" link is clicked
+    document.querySelector('.navigation a:nth-child(1)').addEventListener('click', goToHome);
+
+    // Event listener to call the logout function when the "Logout" link is clicked
+    document.querySelector('.navigation a:nth-child(3)').addEventListener('click', logout);
+</script>
+
+</body>
+</html>
